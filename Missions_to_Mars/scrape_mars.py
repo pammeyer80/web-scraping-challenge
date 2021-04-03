@@ -46,14 +46,52 @@ def scrape():
     facts_df = facts_df[1:] #take the data less the header row
     facts_df.columns = new_header #set the header row as the df header  
     facts_df = facts_df.set_index('Mars - Earth Comparison')
-    facts_table_html = facts_df.to_html()
+    facts_table_html = facts_df.to_html(classes='table table-striped table-bordered')
+
+    #Gather Hemisphere images
+    browser = Browser('chrome', **executable_path, headless=True)  
+
+    url_hemi = "https://marshemispheres.com/"
+    browser.visit(url_hemi)
+
+    html_hemi = browser.html
+    soup_hemi = BeautifulSoup(html_hemi, 'html.parser')
+    items = soup_hemi.find_all('div', 'item')
+
+    links = []
+    hemisphere_image_urls = []
+
+    for item in items:
+        image_link = url_hemi + item.find('a')['href']
+        links.append(image_link)
+
+    browser.quit()
+
+    for link in links:
+        browser = Browser('chrome', **executable_path, headless=True)
+        browser.visit(link)
+        html_hemi = browser.html
+        soup_hemi = BeautifulSoup(html_hemi, 'html.parser')
+        
+        title = soup_hemi.find('h2', 'title').text.strip()
+        download = soup_hemi.find('div', 'downloads')
+        image_list = download.find('li')
+        hemi_image_link = image_list.find('a')
+        href = url_hemi + hemi_image_link['href']
+        hemisphere_image_urls.append({"title":title, "img_url":href}) 
+
+        browser.quit()
+
+
+
 
     #Collect data in dictionary
     mars_data = {
         "title": title,
         "para": para,
         "image": featured_image_url,
-        "table": facts_table_html
+        "table": facts_table_html,
+        "hemispheres": hemisphere_image_urls
     }
    
 
