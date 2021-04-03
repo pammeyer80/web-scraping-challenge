@@ -36,22 +36,20 @@
     </div>
     <div class="row text-center">
       <h2>Mars Hemispheres</h2>
-      <hr>
     </div>
+    <hr>
     <div class="row">
       {% for hemisphere in mars.hemispheres %}
       <div class="col-md-3">
         <div class="card" style="width: 18rem;">
-          <img class="img-thumbnail card-img-top" src="{{ hemisphere.img_url }}">
+          <img class="img-thumbnail card-img-top" src="{{ hemisphere.img_url }}">          
           <div class="card-body">
             <h4 class="card-title"><strong>{{ hemisphere.title }}</strong></h4>
           </div>
         </div>
       </div>
       {% endfor %}
-    </div>
-
-    
+    </div>    
 
   </div>
 </body>
