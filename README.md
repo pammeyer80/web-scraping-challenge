@@ -10,7 +10,11 @@ The [Mission to Mars](Mission_to_Mars\mission_to_mars.ipynb) Jupyter Notebook in
 <br/> [Mars Facts](https://galaxyfacts-mars.com) - scrapes the table containing facts about Mars
 <br/> [Mars Hemispheres](https://marshemispheres.com/) - scrapes the images of the 4 Mars hemispheres and their corresponding titles
 
-## Mars MongoDB and Flask Application
+<br/>
 
+## Mars MongoDB and Flask Application
+The Mars application uses the scraping functionality created in the Mission to Mars jupyter notebook and stores the data retrieved a MongoDB database. The data is then pulled from the database and displayed. Each click of the "Scrape New Data" button on the page, will scrape the above sites for updated data. 
+
+The following is a screenshot of the Mission to Mars application:
 
 ![Mission to Mars Application](images/Mission_to_Mars_fullscreen.PNG)
