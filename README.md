@@ -1,6 +1,6 @@
 # Web Scraping Challenge - Mission to Mars
 
-![Mars](images\mars.jpg)
+![Mars](images/mars.jpg)
 
 ## Scraping Mars Data
 The [Mission to Mars](Mission_to_Mars\mission_to_mars.ipynb) Jupyter Notebook includes uses BeautifulSoup, Pandas and Splinter to scrape data from the following sites.
@@ -16,4 +16,4 @@ The [Mission to Mars](Mission_to_Mars\mission_to_mars.ipynb) Jupyter Notebook in
 ## Mars MongoDB and Flask Application
 
 
-![Mission to Mars Application](images\Mission_to_Mars_fullscreen.PNG)
+![Mission to Mars Application](images/Mission_to_Mars_fullscreen.PNG)
